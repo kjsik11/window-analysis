@@ -52,7 +52,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       })
       .json();
 
-
     const { id, login, avatar_url } = await got
       .get('https://api.github.com/user', {
         headers: {
