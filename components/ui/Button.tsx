@@ -1,7 +1,7 @@
 import { ElementType, Ref } from 'react';
 import cn from 'classnames';
 
-import { Props, __ } from 'types';
+import { Props, __ } from 'types/types';
 import { forwardRefWithAs } from '@utils/forward-ref-with-as';
 
 const DEFAULT_BUTTON_TAG = 'button' as const;
