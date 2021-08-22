@@ -18,15 +18,18 @@
    if (loading) return <Loading />;
  
    return (
-     <div className="flex justify-center">
+     <div>
        <header className="sticky top-0 z-20 h-16 w-full bg-gray-200 shadow-md">
          <div className="flex justify-between px-8 items-center h-full">
-           <p>LOGO</p>
+           <p>로고자리</p>
            <Link href="/signin">
              <Button>Login</Button>
            </Link>
          </div>
        </header>
+       <main className='flex justify-center items-center pt-28'>
+        대충 설명 들어갈 자리
+       </main>
      </div>
    );
  }

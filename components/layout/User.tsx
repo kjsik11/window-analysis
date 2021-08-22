@@ -46,6 +46,7 @@ export default function UserLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <div className="h-screen flex overflow-hidden bg-gray-100">
+      {console.log(user)}
       <Transition.Root show={sidebarOpen} as={Fragment}>
         <Dialog as="div" className="fixed inset-0 flex z-40 md:hidden" onClose={setSidebarOpen}>
           <Transition.Child
@@ -209,6 +210,7 @@ export default function UserLayout({ children }: { children: React.ReactNode }) 
                 <div>
                   <Menu.Button className="max-w-xs bg-white flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     <span className="sr-only">Open user menu</span>
+          
                     {/*eslint-disable-next-line @next/next/no-img-element*/}
                     <img className="h-8 w-8 rounded-full" src={user.profileUrl ?? ''} alt="" />
                   </Menu.Button>

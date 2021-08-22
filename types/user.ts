@@ -18,7 +18,7 @@ interface OAuthAccount {
 export interface User {
   _id: ObjectId;
   name: string;
-  email: string;
+  userId: string;
   profileUrl: string | null;
   password: string | null;
   connectedAccounts: OAuthAccount[];
@@ -27,7 +27,7 @@ export interface User {
   deletedAt: OurDate | null;
 }
 
-export type UserInfo = Pick<User, '_id' | 'name' | 'email' | 'profileUrl'>;
+export type UserInfo = Pick<User, '_id' | 'name' | 'userId' | 'profileUrl'>;
 
 export interface UserSession extends Omit<UserInfo, '_id'> {
   id: string;

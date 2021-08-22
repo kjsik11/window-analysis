@@ -8,7 +8,7 @@ import Script from 'next/script';
 import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
 
-import { fetcher } from '@lib/fetcher';
+import { swrFetcher } from '@lib/fetcher';
 
 import ManagedUIContext from '@components/context';
 import { CommonLayout } from '@components/layout';
@@ -40,8 +40,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Script src="/js/redirectIE.js" strategy="beforeInteractive" />
-      <SWRConfig value={{ fetcher }}>
-
+      <SWRConfig value={{ fetcher:swrFetcher }}>
       <ManagedUIContext>
         <Layout>
           <Component {...pageProps} />

@@ -27,7 +27,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     );
 
     if (!user) throw new Error('User does not exist.');
-
     return res.json(encodeUser(user));
   }
 };

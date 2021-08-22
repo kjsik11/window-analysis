@@ -60,23 +60,15 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       })
       .json();
 
-    const [{ email }] = await got
-      .get('https://api.github.com/user/emails', {
-        headers: {
-          Authorization: `token ${access_token}`,
-        },
-      })
-      .json();
-
     const { db } = await connectMongo();
 
-    const exUser = await db.collection<User>('user').findOne({ email: email as string });
+    const exUser = await db.collection<User>('user').findOne({ userId:id as string });
 
     if (!exUser) {
       // create account with github.
       const { insertedId } = await db.collection<User>('user').insertOne({
         name: login,
-        email,
+       userId:id,
         profileUrl: avatar_url,
         password: null,
         connectedAccounts: [
