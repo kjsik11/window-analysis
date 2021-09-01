@@ -28,7 +28,7 @@ export default function Notification({
         aria-live="assertive"
         className={cn(
           className,
-          'fixed inset-0 flex items-end justify-center px-4 py-6 pointer-events-none sm:p-6 sm:items-start sm:justify-end',
+          'fixed z-50 inset-0 flex items-end justify-center px-4 py-6 pointer-events-none sm:p-6 sm:items-start sm:justify-end',
         )}
       >
         {/* Notification panel, dynamically insert this into the live region when it needs to be displayed */}

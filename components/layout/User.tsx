@@ -33,7 +33,7 @@ const navigation = [
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
   { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
+  { name: 'Sign out', href: '/api/signout' },
 ];
 
 export default function UserLayout({ children }: { children: React.ReactNode }) {
@@ -46,9 +46,8 @@ export default function UserLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <div className="h-screen flex overflow-hidden bg-gray-100">
-      {console.log(user)}
       <Transition.Root show={sidebarOpen} as={Fragment}>
-        <Dialog as="div" className="fixed inset-0 flex z-40 md:hidden" onClose={setSidebarOpen}>
+        <Dialog as="div" className="fixed inset-0 flex z-10 md:hidden" onClose={setSidebarOpen}>
           <Transition.Child
             as={Fragment}
             enter="transition-opacity ease-linear duration-300"
