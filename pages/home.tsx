@@ -17,7 +17,6 @@ export default function HomePage() {
         setFile(file);
       }}
     />
-    {console.log('text',file)}
     </div>
   );
 }

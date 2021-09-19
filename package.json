@@ -21,6 +21,7 @@
     "@heroicons/react": "1.0.3",
     "classnames": "2.3.1",
     "cookie": "0.4.1",
+    "csvtojson": "^2.0.10",
     "got": "11.8.2",
     "hashids": "2.2.8",
     "joi": "17.4.2",
