@@ -1,10 +1,12 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { withErrorHandler } from '@utils/with-error-handler';
-import { connectMongo } from '@utils/connect-mongo';
 import { verifySession } from '@lib/server/verify-session';
 
+import { connectMongo } from '@utils/connect-mongo';
+import { withErrorHandler } from '@utils/with-error-handler';
+
 import { encodeUser, User, UserInfo } from 'types/user';
+
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'GET') {

@@ -1,6 +1,5 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
 import { serialize } from 'cookie';
-import { signToken, verifyToken } from '@utils/jsonwebtoken';
+
 import {
   COOKIE_KEY_ACCESS_TOKEN,
   COOKIE_KEY_REDIRECT_URL,
@@ -8,7 +7,11 @@ import {
 } from '@defines/cookie';
 import { createError } from '@defines/errors';
 import { ACCESS_TOKEN_EXPIRES_IN } from '@defines/token';
+
 import { decodeId } from '@utils/hashids';
+import { signToken, verifyToken } from '@utils/jsonwebtoken';
+
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 interface VerifySessionOptions {
   renewSession?: boolean;

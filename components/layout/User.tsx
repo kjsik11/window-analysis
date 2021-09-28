@@ -1,6 +1,4 @@
-import { Fragment, useState } from 'react';
 import { Dialog, Menu, Transition } from '@headlessui/react';
-import cn from 'classnames';
 import {
   BellIcon,
   CalendarIcon,
@@ -13,14 +11,17 @@ import {
   XIcon,
 } from '@heroicons/react/outline';
 import { SearchIcon } from '@heroicons/react/solid';
+import cn from 'classnames';
+import { Fragment, useState } from 'react';
 
 // component
 import  Loading  from '@components/core/Loading';
-import { useUI } from '../context';
 import { Modal, Notification } from '@components/ui';
 
 // libs
 import { useSession } from '@lib/hooks/use-session';
+
+import { useUI } from '../context';
 
 const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },

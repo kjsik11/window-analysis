@@ -1,8 +1,9 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
 import qs from 'qs';
 
-import { withErrorHandler } from '@utils/with-error-handler';
 import { signToken } from '@utils/jsonwebtoken';
+import { withErrorHandler } from '@utils/with-error-handler';
+
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 const client_id = process.env.GITHUB_ID;
 if (!client_id) throw new Error('Missing GITHUB_ID');

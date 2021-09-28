@@ -1,12 +1,13 @@
 /**
  * @template PageComponent
  */
- import { useEffect } from 'react';
  import router from 'next/router';
+ import { useEffect } from 'react';
  
- import { useSession } from '@lib/hooks/use-session';
- import { Button, Link } from '@components/ui';
  import Loading from '@components/core/Loading';
+ import { Button, Link } from '@components/ui';
+
+ import { useSession } from '@lib/hooks/use-session';
  
  export default function IndexPage() {
    const { user, loading } = useSession();

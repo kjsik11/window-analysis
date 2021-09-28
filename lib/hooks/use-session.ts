@@ -1,13 +1,13 @@
+import cookie from 'cookie';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import useSWR from 'swr';
-import cookie from 'cookie';
 
 import { COOKIE_KEY_REDIRECT_URL } from '@defines/cookie';
 import { CustomError } from '@defines/errors';
 
 // types
-import { UserInfo, UserSession } from 'types/user';
+import { UserSession } from 'types/user';
 
 interface UseSessionOptions {
   savePath?: boolean;
