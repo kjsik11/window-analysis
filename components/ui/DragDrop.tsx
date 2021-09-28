@@ -119,7 +119,7 @@ export default function DragDrop({
             </label>
             <p className="pl-1">or drag and drop</p>
           </div>
-          <p className="text-xs text-gray-500">TXT up to {maximumSize}MB</p>
+          <p className="text-xs text-gray-500">File up to {maximumSize}MB</p>
         </div>
       )}
     </div>
