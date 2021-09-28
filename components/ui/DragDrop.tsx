@@ -99,7 +99,6 @@ export default function DragDrop({
                 name="file-upload"
                 type="file"
                 className="sr-only"
-                accept=".txt"
                 onChange={(e) => {
                   if (!e.target.files || !e.target.files[0]) return;
 
