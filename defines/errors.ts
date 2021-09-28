@@ -1,6 +1,6 @@
 import Joi from 'joi';
 
-const ERROR_VARIANTS = ['CE', 'AE'] as const;
+const ERROR_VARIANTS = ['CE', 'AE','EE'] as const;
 type ErrorCode = `${typeof ERROR_VARIANTS[number]}${number}`;
 
 export interface CustomError {
@@ -71,6 +71,23 @@ const ERRORS = {
     code: 'AE002',
     name: 'Token empty',
     message: 'You need to signin first.',
+  },
+
+  // External Error
+  AWS_ERROR: {
+    code: 'EE001',
+    name: 'AWS error',
+    message: 'An error occured inside of AWS related processes.',
+  },
+  AWS_NOT_FOUND: {
+    code: 'EE002',
+    name: 'S3 Object not found',
+    message: 'Object with the provided `key` was not found.',
+  },
+  MONGO_ERROR: {
+    code: 'EE101',
+    name: 'Mongo error',
+    message: 'An error occured inside of mongodb related processes.',
   },
 } as const;
 
