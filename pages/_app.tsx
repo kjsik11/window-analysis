@@ -7,7 +7,6 @@ import NProgress from 'nprogress';
 import { useEffect } from 'react';
 import { SWRConfig } from 'swr';
 
-
 import ManagedUIContext from '@components/context';
 import { CommonLayout } from '@components/layout';
 
@@ -23,7 +22,7 @@ NProgress.configure({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
-  const Layout = (Component as any).Layout || CommonLayout
+  const Layout = (Component as any).Layout || CommonLayout;
 
   const router = useRouter();
 
@@ -42,12 +41,12 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Script src="/js/redirectIE.js" strategy="beforeInteractive" />
-      <SWRConfig value={{ fetcher:swrFetcher }}>
-      <ManagedUIContext>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ManagedUIContext>
+      <SWRConfig value={{ fetcher: swrFetcher }}>
+        <ManagedUIContext>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ManagedUIContext>
       </SWRConfig>
     </>
   );

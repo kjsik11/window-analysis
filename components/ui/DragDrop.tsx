@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import {  useState } from 'react';
+import { useState } from 'react';
 
 import { useUI } from '@components/context';
 
@@ -50,7 +50,8 @@ export default function DragDrop({
 
         const droppedFile = e.dataTransfer.files[0];
 
-        if (!VALID_FILE_TYPES.includes(droppedFile.type)) {
+        // if (!VALID_FILE_TYPES.includes(droppedFile.type)) {
+        if (false) {
           return showNoti({
             variant: 'alert',
             title: `Invalid file type: ${droppedFile.type ?? 'Unknown'}`,

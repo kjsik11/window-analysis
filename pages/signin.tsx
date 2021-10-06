@@ -1,4 +1,3 @@
-  
 import { Link } from '@components/ui';
 
 export default function SigninPage() {

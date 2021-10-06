@@ -14,11 +14,8 @@ import { encodeId } from '@utils/hashids';
 import { signToken, verifyToken } from '@utils/jsonwebtoken';
 import { withErrorHandler } from '@utils/with-error-handler';
 
-
 // types
 import { User } from 'types/user';
-
-
 
 import type { NextApiRequest, NextApiResponse } from 'next';
 
@@ -67,13 +64,13 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     const { db } = await connectMongo();
 
-    const exUser = await db.collection<User>('user').findOne({ userId:id as string });
+    const exUser = await db.collection<User>('user').findOne({ userId: id as string });
 
     if (!exUser) {
       // create account with github.
       const { insertedId } = await db.collection<User>('user').insertOne({
         name: login,
-       userId:id,
+        userId: id,
         profileUrl: avatar_url,
         password: null,
         connectedAccounts: [

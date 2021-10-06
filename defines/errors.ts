@@ -1,6 +1,6 @@
 import Joi from 'joi';
 
-const ERROR_VARIANTS = ['CE', 'AE','EE'] as const;
+const ERROR_VARIANTS = ['CE', 'AE', 'EE'] as const;
 type ErrorCode = `${typeof ERROR_VARIANTS[number]}${number}`;
 
 export interface CustomError {

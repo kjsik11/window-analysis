@@ -1,4 +1,3 @@
-
 import { verifySession } from '@lib/server/verify-session';
 
 import { connectMongo } from '@utils/connect-mongo';

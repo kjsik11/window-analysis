@@ -1,5 +1,3 @@
-
-
 import { createPresignedPost } from '@aws-sdk/s3-presigned-post';
 import Joi from 'joi';
 
@@ -22,12 +20,10 @@ if (!awsPublicUrl) throw new Error('Missing awsPublicUrl');
 
 const expiresIn = 300;
 
-const path = 'test/files'
+const path = 'test/files';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   verifySession(req, res);
-
-
 
   if (req.method === 'GET') {
     const querySchema = Joi.object({
@@ -70,7 +66,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   //   if (!imgBuffer) return res.status(500).json(createError('INTERNAL_SERVER_ERROR'));
 
-   
   //   const { UploadId, Key } = await s3Client.send(
   //     new CreateMultipartUploadCommand({
   //       ACL: 'public-read',

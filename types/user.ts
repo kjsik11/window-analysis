@@ -1,5 +1,6 @@
-import { encodeId } from '@utils/hashids';
 import { ObjectId } from 'mongodb';
+
+import { encodeId } from '@utils/hashids';
 
 const OAUTH_PROVIDERS = ['github', 'google'] as const;
 type OAuthProvider = typeof OAUTH_PROVIDERS[number];
