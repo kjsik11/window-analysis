@@ -68,11 +68,11 @@ export default function HomePage() {
       </div>
       {loading && <Loading />}
       {artifactName && <p className="text-2xl font-bold mt-8">Artifact Name: {artifactName}</p>}
-      {mainParseResult.length > 0 && (
+      {mainParseResult.length > 0&&subParseResult.length>0 && (
         <div>
-          <div className="flex items-center justify-between mt-12">
-            <p className="text-2xl font-bold">MainParseResult (총{mainParseResult.length}개)</p>
-            <CSVLink filename={`main-parse-result.csv`} data={mainParseResult}>
+          <div className="flex items-center justify-between mt-2">
+            <p className="text-2xl font-bold">ParseResult (총{(mainParseResult.length-1) + (subParseResult.length-1)}개, 최대 100개까지 표시)</p>
+            <CSVLink filename='parse-result.csv' data={[...mainParseResult,[],...subParseResult]}>
               <Button>Get CSV</Button>
             </CSVLink>
           </div>
@@ -107,19 +107,7 @@ export default function HomePage() {
               </tbody>
             </table>
           </div>
-        </div>
-      )}
-      {subParseResult.length > 0 && (
-        <div>
-          <div className="flex justify-between mt-12">
-            <p className="text-2xl font-bold">
-              SubParseResult (총{subParseResult.length}개, 100개까지 출력)
-            </p>
-            <CSVLink filename={`sub-parse-result.csv`} data={subParseResult}>
-              <Button>Get CSV</Button>
-            </CSVLink>
-          </div>
-          <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg mt-4">
+          <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg mt-8">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr className="text-center">
@@ -152,6 +140,7 @@ export default function HomePage() {
           </div>
         </div>
       )}
+  
     </div>
   );
 }
