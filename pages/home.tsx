@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import { CSVLink } from 'react-csv';
 
 import { useUI } from '@components/context';
+import { Loading } from '@components/core';
 import { UserLayout } from '@components/layout';
 import { Button } from '@components/ui';
 import DragDrop from '@components/ui/DragDrop';
@@ -65,6 +66,7 @@ export default function HomePage() {
           </Button>
         </div>
       </div>
+      {loading && <Loading />}
       {artifactName && <p className="text-2xl font-bold mt-8">Artifact Name: {artifactName}</p>}
       {mainParseResult.length > 0 && (
         <div>
