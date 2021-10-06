@@ -23,7 +23,9 @@ export default function HomePage() {
     async (file: File) => {
       try {
         setLoading(true);
-
+        setArtifactName(null);
+        setMainParseResult([]);
+        setSubParseResult([]);
         const url = await uploadFileAWS(file);
 
         const {
