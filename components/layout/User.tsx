@@ -10,13 +10,13 @@ import {
   UsersIcon,
   XIcon,
 } from '@heroicons/react/outline';
-import { SearchIcon } from '@heroicons/react/solid';
 import cn from 'classnames';
+import { useRouter } from 'next/router';
 import { Fragment, useState } from 'react';
 
 // component
 import Loading from '@components/core/Loading';
-import { Modal, Notification } from '@components/ui';
+import { Link, Modal, Notification } from '@components/ui';
 
 // libs
 import { useSession } from '@lib/hooks/use-session';
@@ -24,12 +24,12 @@ import { useSession } from '@lib/hooks/use-session';
 import { useUI } from '../context';
 
 const navigation = [
-  { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
-  { name: 'Team', href: '#', icon: UsersIcon, current: false },
-  { name: 'Projects', href: '#', icon: FolderIcon, current: false },
-  { name: 'Calendar', href: '#', icon: CalendarIcon, current: false },
-  { name: 'Documents', href: '#', icon: InboxIcon, current: false },
-  { name: 'Reports', href: '#', icon: ChartBarIcon, current: false },
+  { name: 'Dashboard', href: '/home', icon: HomeIcon },
+  { name: 'Team', href: '/team', icon: UsersIcon },
+  { name: 'Docs', href: '/docs', icon: FolderIcon },
+  { name: 'Calendar', href: '#', icon: CalendarIcon },
+  { name: 'Documents', href: '#', icon: InboxIcon },
+  { name: 'Reports', href: '#', icon: ChartBarIcon },
 ];
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
@@ -38,6 +38,8 @@ const userNavigation = [
 ];
 
 export default function UserLayout({ children }: { children: React.ReactNode }) {
+  const router = useRouter();
+
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const { modalFlag, modalContent, notiFlag, closeNoti, notiContent } = useUI();
@@ -90,22 +92,14 @@ export default function UserLayout({ children }: { children: React.ReactNode }) 
                   </button>
                 </div>
               </Transition.Child>
-              <div className="flex-shrink-0 flex items-center px-4">
-                {/*eslint-disable-next-line @next/next/no-img-element*/}
-                <img
-                  className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/workflow-logo-indigo-300-mark-white-text.svg"
-                  alt="Workflow"
-                />
-              </div>
               <div className="mt-5 flex-1 h-0 overflow-y-auto">
                 <nav className="px-2 space-y-1">
                   {navigation.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
                       href={item.href}
                       className={cn(
-                        item.current
+                        item.href === router.asPath
                           ? 'bg-indigo-800 text-white'
                           : 'text-indigo-100 hover:bg-indigo-600',
                         'group flex items-center px-2 py-2 text-base font-medium rounded-md',
@@ -116,7 +110,7 @@ export default function UserLayout({ children }: { children: React.ReactNode }) 
                         aria-hidden="true"
                       />
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </nav>
               </div>
@@ -133,22 +127,14 @@ export default function UserLayout({ children }: { children: React.ReactNode }) 
         <div className="flex flex-col w-64">
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="flex flex-col flex-grow pt-5 pb-4 overflow-y-auto">
-            <div className="flex items-center flex-shrink-0 px-4">
-              {/*eslint-disable-next-line @next/next/no-img-element*/}
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/workflow-logo-indigo-300-mark-white-text.svg"
-                alt="logo"
-              />
-            </div>
             <div className="mt-5 flex-1 flex flex-col">
               <nav className="flex-1 px-2 space-y-1">
                 {navigation.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
                     href={item.href}
                     className={cn(
-                      item.current
+                      item.href === router.asPath
                         ? 'bg-indigo-800 text-white'
                         : 'text-indigo-100 hover:bg-indigo-600',
                       'group flex items-center px-2 py-2 text-sm font-medium rounded-md',
@@ -159,7 +145,7 @@ export default function UserLayout({ children }: { children: React.ReactNode }) 
                       aria-hidden="true"
                     />
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </nav>
             </div>
@@ -176,26 +162,7 @@ export default function UserLayout({ children }: { children: React.ReactNode }) 
             <span className="sr-only">Open sidebar</span>
             <MenuAlt2Icon className="h-6 w-6" aria-hidden="true" />
           </button>
-          <div className="flex-1 px-4 flex justify-between">
-            <div className="flex-1 flex">
-              <form className="w-full flex md:ml-0" action="#" method="GET">
-                <label htmlFor="search-field" className="sr-only">
-                  Search
-                </label>
-                <div className="relative w-full text-gray-400 focus-within:text-gray-600">
-                  <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none">
-                    <SearchIcon className="h-5 w-5" aria-hidden="true" />
-                  </div>
-                  <input
-                    id="search-field"
-                    className="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm"
-                    placeholder="Search"
-                    type="search"
-                    name="search"
-                  />
-                </div>
-              </form>
-            </div>
+          <div className="flex-1 px-4 flex justify-end">
             <div className="ml-4 flex items-center md:ml-6">
               <button
                 type="button"
