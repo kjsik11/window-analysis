@@ -1,6 +1,7 @@
 import { Dialog, Menu, Transition } from '@headlessui/react';
 import {
   BellIcon,
+  ChatIcon,
   DocumentReportIcon,
   FolderIcon,
   MenuAlt2Icon,
@@ -25,6 +26,7 @@ const navigation = [
   { name: 'Team', href: '/team', icon: UsersIcon },
   { name: 'Prefetch', href: '/prefetch', icon: FolderIcon },
   { name: 'Lnk', href: '/lnk', icon: FolderIcon },
+  { name: 'Feedback', href: '/feedback', icon: ChatIcon },
 ];
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
