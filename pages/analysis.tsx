@@ -50,8 +50,11 @@ export default function HomePage() {
 
   return (
     <div className="mx-auto mt-4  max-w-7xl px-4 pb-20">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto lg:pt-12">
+        <h1 className="text-3xl sm:text-4xl font-bold">Window Artifacts Analysis</h1>
+        <div className="h-[1px] bg-gray-300 w-full mb-8 mt-4" />
         <DragDrop
+          className="h-48"
           onDropFile={(file) => {
             setFile(file);
           }}
@@ -70,11 +73,14 @@ export default function HomePage() {
       </div>
       {loading && <Loading />}
       {artifactName && <p className="text-2xl font-bold mt-8">Artifact Name: {artifactName}</p>}
-      {mainParseResult.length > 0&&subParseResult.length>0 && (
+      {mainParseResult.length > 0 && subParseResult.length > 0 && (
         <div>
           <div className="flex items-center justify-between mt-2">
-            <p className="text-2xl font-bold">ParseResult (총{(mainParseResult.length-1) + (subParseResult.length-1)}개, 최대 100개까지 표시)</p>
-            <CSVLink filename='parse-result.csv' data={[...mainParseResult,[],...subParseResult]}>
+            <p className="text-2xl font-bold">
+              ParseResult (총{mainParseResult.length - 1 + (subParseResult.length - 1)}개, 최대
+              100개까지 표시)
+            </p>
+            <CSVLink filename="parse-result.csv" data={[...mainParseResult, [], ...subParseResult]}>
               <Button>Get CSV</Button>
             </CSVLink>
           </div>
@@ -142,7 +148,6 @@ export default function HomePage() {
           </div>
         </div>
       )}
-  
     </div>
   );
 }

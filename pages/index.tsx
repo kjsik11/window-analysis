@@ -51,8 +51,8 @@ export default function IndexPage() {
       <main className="flex flex-col justify-around h-full">
         <section className="mt-16 mx-auto max-w-7xl px-4 sm:mt-24">
           <div className="text-center">
-            <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-              <p className="block">2021 JBU SENIOR PROJECT</p>{' '}
+            <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl space-y-2">
+              <p className="block">JBU GRADUATION PROJECT</p>
               <p className="block text-indigo-600">Window Artifacts Analysis</p>
             </h1>
             <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
