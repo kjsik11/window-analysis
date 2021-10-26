@@ -151,7 +151,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       serialize(COOKIE_KEY_ACCESS_TOKEN, accessToken, defaultCookieOptions),
     ]);
 
-    res.redirect(req.cookies[COOKIE_KEY_REDIRECT_URL] || '/home');
+    res.redirect(req.cookies[COOKIE_KEY_REDIRECT_URL] || '/analysis');
     return;
   }
 };

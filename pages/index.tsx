@@ -32,7 +32,7 @@ export default function IndexPage() {
   }, [handleSlider]);
 
   useEffect(() => {
-    if (user) router.replace('/home');
+    if (user) router.replace('/analysis');
   }, [user]);
 
   if (loading) return <Loading />;
@@ -57,7 +57,7 @@ export default function IndexPage() {
             </h1>
             <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
               <NextLink passHref href="/signin">
-                <Button className="px-8 py-2" as="a">
+                <Button className="px-8 py-3" as="a">
                   Get started
                 </Button>
               </NextLink>

@@ -1,8 +1,8 @@
 import { Dialog, Menu, Transition } from '@headlessui/react';
 import {
   BellIcon,
+  DocumentReportIcon,
   FolderIcon,
-  HomeIcon,
   MenuAlt2Icon,
   UsersIcon,
   XIcon,
@@ -21,7 +21,7 @@ import { useSession } from '@lib/hooks/use-session';
 import { useUI } from '../context';
 
 const navigation = [
-  { name: 'Dashboard', href: '/home', icon: HomeIcon },
+  { name: 'Analysis', href: '/analysis', icon: DocumentReportIcon },
   { name: 'Team', href: '/team', icon: UsersIcon },
   { name: 'Prefetch', href: '/prefetch', icon: FolderIcon },
   { name: 'Lnk', href: '/lnk', icon: FolderIcon },
