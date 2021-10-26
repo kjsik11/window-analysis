@@ -1,8 +1,12 @@
 /**
  * @template PageComponent
  */
+import cn from 'classnames';
+import NextImage from 'next/image';
 import router from 'next/router';
-import { useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+
+import logoList from 'logoList.json';
 
 import Loading from '@components/core/Loading';
 import { Button, Link } from '@components/ui';
@@ -10,7 +14,21 @@ import { Button, Link } from '@components/ui';
 import { useSession } from '@lib/hooks/use-session';
 
 export default function IndexPage() {
+  const [sliderWidth, setSliderWidth] = useState<[number, number]>([3000, 3000]);
+
   const { user, loading } = useSession();
+
+  const handleSlider = useCallback(() => {
+    const sliderElems = document.getElementsByClassName('slider');
+
+    if (sliderElems.length === 2) {
+      setSliderWidth([sliderElems[0].scrollWidth, sliderElems[1].scrollWidth]);
+    }
+  }, []);
+
+  useEffect(() => {
+    handleSlider();
+  }, [handleSlider]);
 
   useEffect(() => {
     if (user) router.replace('/home');
@@ -19,16 +37,62 @@ export default function IndexPage() {
   if (loading) return <Loading />;
 
   return (
-    <div>
-      <header className="sticky top-0 z-20 h-16 w-full bg-gray-200 shadow-md">
+    <div className="overflow-x-hidden h-full">
+      <header className="sticky top-0 z-20 h-16 w-full bg-white shadow-md">
         <div className="flex justify-between px-8 items-center h-full">
-          <p>로고자리</p>
+          <NextImage width={201} height={64} src="/images/logo.png" objectFit="contain" />
+
           <Link href="/signin">
             <Button>Login</Button>
           </Link>
         </div>
       </header>
-      <main className="flex justify-center items-center pt-28">대충 설명 들어갈 자리</main>
+      <main className="flex flex-col justify-around h-full">
+        <section className="mt-16 mx-auto max-w-7xl px-4 sm:mt-24">
+          <div className="text-center">
+            <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+              <span className="block xl:inline">2021 JBU SENIOR PROJECT</span>{' '}
+              <span className="block text-indigo-600 xl:inline">Window Artifacts Analysis</span>
+            </h1>
+            <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
+              <Link
+                href="/signin"
+                className="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+              >
+                Get started
+              </Link>
+            </div>
+          </div>
+        </section>
+        <div
+          onLoad={() => {
+            handleSlider();
+          }}
+          className="my-12 space-y-8 md:mt-20 lg:space-y-16 lg:mt-32 lg:mb-24"
+        >
+          {logoList.map((array, index) => (
+            <div
+              style={{ width: sliderWidth[index] }}
+              className={cn('slider inline-flex items-center flex-1 space-x-12', {
+                'slider-left': index === 0,
+                'slider-left2': index === 1,
+              })}
+              key={`slider-items-${index}`}
+            >
+              {[...array, ...array].map((logo, idx) => (
+                <div key={`slider-item-row-${index}-${idx}`} className="relative flex-shrink-0">
+                  {/*eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    className="object-contain h-20 lg:h-24"
+                    alt={`logo-images-${logo}`}
+                    src={`/images/logos/${index + 1}/${logo}`}
+                  />
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </main>
     </div>
   );
 }

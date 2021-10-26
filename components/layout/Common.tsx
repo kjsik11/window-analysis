@@ -11,7 +11,7 @@ export default function CommonLayout({
   children: React.ReactNode;
   className?: string;
 }) {
-  const { modalFlag, modalContent, notiFlag, closeModal, closeNoti, notiContent } = useUI();
+  const { modalFlag, modalContent, notiFlag, closeNoti, notiContent } = useUI();
 
   return (
     <div className="relative h-full w-full">

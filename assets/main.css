@@ -27,6 +27,42 @@
   }
 }
 
+.slider-left {
+  animation: slideToLeftMobile 70s linear infinite;
+}
+
+.slider-left2 {
+  animation: slideToLeftMobile 50s linear infinite;
+}
+
+@media (min-width: 1024px) {
+  .slider-left {
+    animation: slideToLeftDesktop 70s linear infinite;
+  }
+
+  .slider-left2 {
+    animation: slideToLeftDesktop 50s linear infinite;
+  }
+}
+
+@keyframes slideToLeftMobile {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes slideToLeftDesktop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 @tailwind components;
 
 @tailwind utilities;
