@@ -8,7 +8,7 @@ import { Props, __ } from 'types/types';
 const DEFAULT_BUTTON_TAG = 'button' as const;
 
 const colorClasses = {
-  blue: 'bg-indigo-400 hover:bg-indigo-500 border-transparent',
+  blue: 'bg-indigo-500 hover:bg-indigo-600 border-transparent',
   red: 'bg-red-400 hover:bg-red-500 focus-visible:ring-red-500 border-transparent',
   white: 'bg-white hover:bg-gray-50 border-gray-300',
 };

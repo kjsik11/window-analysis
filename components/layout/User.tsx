@@ -1,11 +1,8 @@
 import { Dialog, Menu, Transition } from '@headlessui/react';
 import {
   BellIcon,
-  CalendarIcon,
-  ChartBarIcon,
   FolderIcon,
   HomeIcon,
-  InboxIcon,
   MenuAlt2Icon,
   UsersIcon,
   XIcon,
@@ -26,10 +23,8 @@ import { useUI } from '../context';
 const navigation = [
   { name: 'Dashboard', href: '/home', icon: HomeIcon },
   { name: 'Team', href: '/team', icon: UsersIcon },
-  { name: 'Docs', href: '/docs', icon: FolderIcon },
-  { name: 'Calendar', href: '#', icon: CalendarIcon },
-  { name: 'Documents', href: '#', icon: InboxIcon },
-  { name: 'Reports', href: '#', icon: ChartBarIcon },
+  { name: 'Prefetch', href: '/prefetch', icon: FolderIcon },
+  { name: 'Lnk', href: '/lnk', icon: FolderIcon },
 ];
 const userNavigation = [
   { name: 'Your Profile', href: '#' },

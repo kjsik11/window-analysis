@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { UserLayout } from '@components/layout';
 
-export default function DocsPage() {
+export default function PrefetchDocsPage() {
   const [h1Element, setH1Element] = useState<{
     h1Elements: HTMLCollectionOf<HTMLHeadingElement>;
     length: number;
@@ -205,4 +205,4 @@ export default function DocsPage() {
   );
 }
 
-DocsPage.Layout = UserLayout;
+PrefetchDocsPage.Layout = UserLayout;
