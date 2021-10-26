@@ -38,6 +38,8 @@ const teamItems = [
 export default function TeamPage() {
   return (
     <div className="pt-4 sm:pt-8 md:pt-12 pb-32 px-6 md:px-8 lg:px-12 max-w-screen-xl mx-auto ">
+      <h2 className="text-3xl font-extrabold  tracking-tight sm:text-4xl">Meet our team</h2>
+
       <div className="pt-8">
         <div className="max-w-md mx-auto space-y-20 grid gap-5 lg:space-y-0 lg:grid-cols-2 lg:max-w-screen-md xl:gap-16">
           {teamItems.map((person) => (
