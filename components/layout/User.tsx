@@ -24,8 +24,11 @@ import { useUI } from '../context';
 const navigation = [
   { name: 'Analysis', href: '/analysis', icon: DocumentReportIcon },
   { name: 'Team', href: '/team', icon: UsersIcon },
-  { name: 'Prefetch', href: '/prefetch', icon: FolderIcon },
   { name: 'Lnk', href: '/lnk', icon: FolderIcon },
+  { name: 'MFT', href: '/mft', icon: FolderIcon },
+  { name: 'Prefetch', href: '/prefetch', icon: FolderIcon },
+  { name: 'UsnJrnl', href: '/usnjrnl', icon: FolderIcon },
+
   { name: 'Feedback', href: '/feedback', icon: ChatIcon },
 ];
 const userNavigation = [
