@@ -24,9 +24,12 @@ import { useUI } from '../context';
 const navigation = [
   { name: 'Analysis', href: '/analysis', icon: DocumentReportIcon },
   { name: 'Team', href: '/team', icon: UsersIcon },
+  { name: 'JumpList', href: '/jumplist', icon: FolderIcon },
   { name: 'Lnk', href: '/lnk', icon: FolderIcon },
+  { name: 'LogFile', href: '/logfile', icon: FolderIcon },
   { name: 'MFT', href: '/mft', icon: FolderIcon },
   { name: 'Prefetch', href: '/prefetch', icon: FolderIcon },
+  { name: 'Registry', href: '/registry', icon: FolderIcon },
   { name: 'UsnJrnl', href: '/usnjrnl', icon: FolderIcon },
 
   { name: 'Feedback', href: '/feedback', icon: ChatIcon },

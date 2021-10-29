@@ -6,6 +6,8 @@ import { Button } from '@components/ui';
 import Input from '@components/ui/Input';
 import TextArea from '@components/ui/TextArea';
 
+import requestFeedback from '@lib/requestFeedback';
+
 import { initialFeedbackInput, FeedbackInput } from 'types/feedback';
 
 export default function FeedbackPage() {
@@ -14,18 +16,23 @@ export default function FeedbackPage() {
 
   const { showNoti } = useUI();
 
-  const handleSubmit = useCallback(async () => {
-    setLoading(true);
-    try {
-      showNoti({ title: '전송 성공', content: '피드백이 성공적으로 전달되었습니다.' });
+  const handleSubmit = useCallback(
+    async (feedbackInput: FeedbackInput) => {
+      setLoading(true);
+      try {
+        showNoti({ title: '전송 성공', content: '피드백이 성공적으로 전달되었습니다.' });
 
-      setFeedbackInputs(initialFeedbackInput);
-    } catch (err) {
-      showNoti({ title: 'Submit Error', variant: 'alert', content: err.message });
-    } finally {
-      setLoading(false);
-    }
-  }, [showNoti]);
+        requestFeedback(feedbackInput);
+
+        setFeedbackInputs(initialFeedbackInput);
+      } catch (err) {
+        showNoti({ title: 'Submit Error', variant: 'alert', content: err.message });
+      } finally {
+        setLoading(false);
+      }
+    },
+    [showNoti],
+  );
 
   return (
     <div className="py-16 px-4 overflow-hidden sm:px-6 lg:px-8 lg:py-12">
@@ -99,7 +106,7 @@ export default function FeedbackPage() {
           <div className="mt-4">
             <Button
               onClick={() => {
-                handleSubmit();
+                handleSubmit(feedbackInputs);
               }}
               disabled={
                 loading ||
