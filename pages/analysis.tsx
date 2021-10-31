@@ -26,8 +26,6 @@ export default function HomePage() {
 
         const parseData = await getData(file.name);
 
-        console.log(parseData)
-
         if (parseData) {
         setParseData(parseData)
         }
