@@ -1,10 +1,10 @@
 import { fetcher } from './fetcher';
 
-export default async function getData(url: string) {
+export default async function getData(fileName: string) {
   try {
     const { data } = await fetcher
       .post('/api/parse', {
-        searchParams: { url },
+        searchParams: { fileName },
       })
       .json<{
         data: { Artifact_name: string; parseResult_Main: any[]; parseResult_Sub: any[] };

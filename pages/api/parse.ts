@@ -9,16 +9,25 @@ const parseUrl = process.env.PARSE_SERVER_URL;
 
 if (!parseUrl) throw new Error('No such url');
 
+
+const publicUrl = process.env.AWS_PUBLIC_URL;
+
+if (!parseUrl) throw new Error('No such aws url');
+
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const querySchema = Joi.object({
-    url: Joi.string().label('url').required(),
+    fileName: Joi.string().label('fileName').required(),
   });
 
-  const { url } = (await querySchema.validateAsync(req.query)) as { url: string };
 
-  if (!url) throw new Error('Error!!');
+  const { fileName } = (await querySchema.validateAsync(req.query)) as { fileName: string };
+
+
+  if (!fileName) throw new Error('Error!!');
+
   if (req.method === 'POST') {
-    const data = await got.get(parseUrl, { searchParams: { urllink: url } }).json();
+
+    const data = await got.get(parseUrl, { searchParams: { urllink: `${publicUrl}${fileName}` } }).json();
 
     return res.json({ data });
   }

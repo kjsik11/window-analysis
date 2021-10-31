@@ -20,7 +20,7 @@ export default async function uploadFileAWS(file: File) {
 
     return `${url}/test/files/${file.name}`;
   } catch (err) {
-    console.log('[uploadFileAWS error]', err);
+    console.log('[uploadFileAWS error]', err.message);
     throw new Error(err);
   }
 }
